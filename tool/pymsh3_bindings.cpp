@@ -764,7 +764,6 @@ public:
         }
 
         if (this->listener) {
-            MsH3ListenerStop(listener_);
             MsH3ListenerClose(this->listener);
             this->listener = nullptr;
         }
