@@ -689,6 +689,10 @@ public:
                 server_ctx_.docroot = docroot;
           }
 
+    ~H3FileServer() {
+        stop();
+    }
+
     void start() {
         // 여기에 msh3_server.cpp의 초기화 로직:
         // MsH3ApiOpen
@@ -760,6 +764,7 @@ public:
         }
 
         if (this->listener) {
+            MsH3ListenerStop(listener_);
             MsH3ListenerClose(this->listener);
             this->listener = nullptr;
         }
